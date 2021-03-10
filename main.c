@@ -101,7 +101,7 @@ int main()
     printf("----------------------------------------------------------------------\n\n");
     printf("  Produto\n\n");
     printf(" >> %s\n", nome_prod);
-    printf("      R$%5.2f x %i :                                          R$%5.2f\n", preco_prod, qnt, base);
+    printf("      R$%5.2f x %i :                                          R$%5.2f\n", preco_prod, qnt, valor_bruto);
     printf("       Desconto (%i%%)                                         R$%5.2f\n\n", desc, desconto);
     printf("----------------------------------------------------------------------\n\n");
     printf("   Total:                                                    R$%5.2f\n\n", valor_total);
