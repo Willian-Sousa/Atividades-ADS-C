@@ -1,7 +1,7 @@
 /*
 *Atividade de Portfolio para o Ciclo 2
 *
-*Autor: Wiilian Sousa de Carvalo
+*Autor: Willian Sousa de Carvalho
 *
 * Programa para uma loja.
 */
@@ -90,8 +90,8 @@ int main()
     //Calculos
 
     valor_bruto = preco_prod * qnt;
-    desconto = valor_bruto * taxa;
-    valor_total = valor_bruto - desconto;
+    desconto_total = valor_bruto * taxa;
+    valor_total = valor_bruto - desconto_total;
 
     // Resultados
 
@@ -102,7 +102,7 @@ int main()
     printf("  Produto\n\n");
     printf(" >> %s\n", nome_prod);
     printf("      R$%5.2f x %i :                                          R$%5.2f\n", preco_prod, qnt, valor_bruto);
-    printf("       Desconto (%i%%)                                         R$%5.2f\n\n", desc, desconto);
+    printf("       Desconto (%i%%)                                         R$%5.2f\n\n", desconto_base, desconto_total);
     printf("----------------------------------------------------------------------\n\n");
     printf("   Total:                                                    R$%5.2f\n\n", valor_total);
 
