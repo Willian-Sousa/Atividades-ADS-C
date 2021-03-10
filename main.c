@@ -13,45 +13,27 @@
 int main()
 {
     //Declaracao das variaveis
-    char titulo[30] = "Relatorio de Compras";
     char nome_prod[30];
-    int area, qnt, desc;
-    float preco_prod, base;
-    float taxa, desconto, valor_total;
+    int area, qnt, desconto_base;
+    float preco_prod, valor_bruto;
+    float taxa, desconto_total, valor_total;
 
 
- printf("%c",218);
- printf("%c%c%c%c%c%c%c%c%c",196,196,196,196,196,196,196,196,196,196);
- printf("%c%c%c%c%c%c%c%c%c",196,196,196,196,196,196,196,196,196,196);
- printf("%c%c%c%c%c%c%c%c%c",196,196,196,196,196,196,196,196,196,196);
- printf("%c%c%c%c%c%c%c%c%c",196,196,196,196,196,196,196,196,196,196);
- printf("%c%c%c%c%c%c%c%c%c",196,196,196,196,196,196,196,196,196,196);
- printf("%c\n",191);
- printf("%c %-43s %c\n",179,titulo,179);
- printf("%c",192);
- printf("%c%c%c%c%c%c%c%c%c",196,196,196,196,196,196,196,196,196,196);
- printf("%c%c%c%c%c%c%c%c%c",196,196,196,196,196,196,196,196,196,196);
- printf("%c%c%c%c%c%c%c%c%c",196,196,196,196,196,196,196,196,196,196);
- printf("%c%c%c%c%c%c%c%c%c",196,196,196,196,196,196,196,196,196,196);
- printf("%c%c%c%c%c%c%c%c%c",196,196,196,196,196,196,196,196,196,196);
- printf("%c\n\n",217);
 
-
-    printf("  [1]  Informatica \n");
-    printf("  [2]  Jogos \n");
-    printf("  [3]  Eletronicos \n\n");
-    printf("  [0]  Sair do programa \n\n");
-
-
+    printf("        Loja Denki Eletronicos");
+    printf("\n **************************************\n");
+    printf("*  |1|  Informatica                    *\n");
+    printf("*  |2|  Jogos                          *\n");
+    printf("*  |3|  Eletronicos                    *\n");
+    printf("*  |0|  Sair do programa               *\n");
+    printf(" **************************************\n");
     printf("Selecione a area do produto: ");
     scanf("%d", &area);
 
 
-
-
     switch(area){
 
-    case 0:
+    case 0: //Sair do menu
         system("cls");
         printf("Escolheu sair do menu.\n");
         exit(0);
@@ -62,15 +44,15 @@ int main()
         fflush(stdin);
         printf("\nA area de Informatica esta com 5%% de desconto!\n");
         printf("\n");
-        desc = 5;
+        desconto_base = 5;
         taxa = 0.05;
         break;
 
-    case 2: //jogos
+    case 2: //Jogos
         system("cls");
         printf("\nA area de Jogos esta com 8%% de desconto!\n");
         printf("\n");
-        desc = 8;
+        desconto_base = 8;
         taxa = 0.08;
         fflush(stdin);
         break;
@@ -79,27 +61,18 @@ int main()
         system("cls");
         printf("\nA area de Eletronicos esta com 10%% de desconto!\n");
         printf("\n");
-        desc = 10;
+        desconto_base = 10;
         taxa = 0.10;
         fflush(stdin);
         break;
 
     default: // Se numero digitado for diferente dos acima citados.
-
-    while (area>3){
         system("cls");
         printf("\n--------------Area invalida!----------------\n\n");
-        printf("  [1]  Informatica \n");
-        printf("  [2]  Jogos \n");
-        printf("  [3]  Eletronicos \n\n");
-        printf("  [0]  Sair do programa \n\n");
-
-
-    printf("Selecione uma das areas correspondentes acima: ");
-    scanf("%d", &area);
-        fflush(stdin);
-         }
-        }
+        printf(" Tente novamente.\n\n");
+        return main();
+        break;
+      }
 
 
     // Entrada de dados
@@ -116,23 +89,24 @@ int main()
 
     //Calculos
 
-    base = preco_prod * qnt;
-    desconto = base * taxa;
-    valor_total = base - desconto;
+    valor_bruto = preco_prod * qnt;
+    desconto = valor_bruto * taxa;
+    valor_total = valor_bruto - desconto;
 
     // Resultados
+
     system("cls");
-    printf("\n");
-    printf("-----------------------------------------------\n");
-    printf("            Nota Fiscal\n");
-    printf("-----------------------------------------------\n\n");
-    printf(" >>>Relacao de produtos<<< \n\n");
-    printf("   * %s \n", nome_prod);
-    printf("      %i x R$%.2f..................: R$%.2f \n\n", qnt, preco_prod, base);
-    printf(" Valor do desconto (%i%%).............: R$%.2f \n\n", desc, desconto);
-    printf("-----------------------------------------------\n\n");
-    printf(" Valor total a pagar................: R$%.2f \n\n", valor_total);
-    printf("-----------------------------------------------\n\n");
+    printf("----------------------------------------------------------------------\n");
+    printf("                     Relacao de produtos\n");
+    printf("----------------------------------------------------------------------\n\n");
+    printf("  Produto\n\n");
+    printf(" >> %s\n", nome_prod);
+    printf("      R$%5.2f x %i :                                          R$%5.2f\n", preco_prod, qnt, base);
+    printf("       Desconto (%i%%)                                         R$%5.2f\n\n", desc, desconto);
+    printf("----------------------------------------------------------------------\n\n");
+    printf("   Total:                                                    R$%5.2f\n\n", valor_total);
+
+
 
 
 return 0;
